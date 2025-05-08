@@ -126,12 +126,9 @@
             let boughtGTA6 = false;
             let boughtMathematician = false;
             let boughtEmoBand = false;
-
-            // Replace the existing DOMContentLoaded event listener
             window.addEventListener("DOMContentLoaded", function() {
                 const saveFile = localStorage.getItem("DC2_SaveFile");
                 if (saveFile) {
-                    // Load saved data if it exists
                     const savedData = JSON.parse(saveFile);
                     points = savedData.points;
                     sadFriendCountValue = savedData.sadFriendCountValue;
