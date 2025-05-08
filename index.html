@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 132px;">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Depression Clicker PLUS">
+        <meta name="author" content="ben">
+        <meta name="keywords" content="Depression Clicker, Game, Clicker Game">
+        <title>DCP</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="materialize/css/materialize.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+        <link rel="stylesheet" href="materialize/css/materialize.css">
+    </head>
+    <body>
+        <div>
+            <h3 style="text-align: center;">Depression Clicker PLUS</h3>
+            <h2 style="text-align: center; grid-area: 1 / 1 / 2 / 2; font-size: 40px;" id="pointCount">Points: 0</h2>
+        </div>
+        <div style="display: grid; text-align: center; justify-content: center; grid-column: 8 area / 9; grid-row: 9 area / 6; row-gap: 15px; flex-wrap: nowrap;" class="flow-text">
+            <a class="btn flow-text" style="grid-area:3 / 1 / 4 / 2;" id="buySadFriend">GET SAD FRIEND(COST:100)</a><a class="btn flow-text" style="font-weight: normal;" id="getSad">GET SAD</a><b style="font-size: 17px; text-align: center; flex-direction: column-reverse;" id="sadFriendCount" class="flow-text">YOU HAVE 0 SAD FRIENDS(LIMIT 100)</b>
+            <a class="btn flow-text" id="goOutside">Go outside(COST: 20)</a>
+            <a class="btn flow-text" id="watchYouTube">WATCH YOUTUBE(COST: 50)</a>
+            <b style="font-size: 17px; text-align: center; flex-direction: column-reverse;" id="emoSongProduceCount" class="flow-text">EMO SONGS PRODUCED: 0</b>
+            <a class="btn flow-text" id="makeEmoMusic">MAKE EMO MUSIC(COST: 5000)</a>
+            <a class="btn flow-text" id="yellAtCivilians" title="The price is the fee of being banned from most public places.">YELL AT RANDOM CIVILIANS(COST: 30000)</a>
+            <a class="btn flow-text" id="controversialTweet">make a controversial tweet(cost:200)</a>
+            <a class="btn flow-text" id="screamAtBirds">SCREAM AT BIRDS OUTSIDE(COST: 20)</a>
+            <a class="btn flow-text" id="talkToYourself">TALK TO YOURSELF(COST: 100)</a>
+            <a class="btn flow-text" id="playSubwaySurf">PLAY SUBWAY SURFERS(COST: 10)</a>
+            <a class="btn flow-text" id="yogaClass">GO TO YOGA CLASS(COST: 90)</a>
+            <a class="btn flow-text" id="bangOnWall">BANG ON THE WALL(COST: 10)</a>
+            <a class="btn flow-text" id="cry">CRY BECAUSE WHY NOT(COST: 100)</a>
+            <a class="btn flow-text" id="sleepSidewalk">SLEEP ON THE SIDEWALK(COST: 30)</a>
+            <a class="btn flow-text" id="investCrypto">INVEST IN CRYPTO(COST: 2000)</a>
+            <a class="btn flow-text" id="animalShelterSignup">SIGN UP FOR AN ANIMAL SHELTER(COST: 10)</a>
+            <a class="btn flow-text" id="callRandomPhoneNumber">CALL A RANDOM NUMBER(COST: 90)</a>
+            <a class="btn flow-text" id="eatFoodFromOutside">EAT SOME FOOD YOU FOUND OUTSIDE(COST: 2)</a>
+            <a class="btn flow-text" id="bumpRandomPeople">INTENTIONALLY BUMP INTO SOMEONE(COST: 50)</a>
+            <a class="btn flow-text" id="payHouseBills">PAY YOUR HOUSE BILLS(COST: 9000)</a>
+            <a class="btn flow-text" id="cryOutside">CRY OUTSIDE(COST: 90)</a>
+            <a class="btn flow-text" id="sleepAllDay">SLEEP ALL DAY(COST: 200)</a>
+            <a class="btn flow-text" id="stareAtWall">STARE AT THE WALL(COST: 4000)</a>
+            <b style="font-size: 17px; text-align: center; flex-direction: column-reverse;" id="barbiesOwned" class="flow-text">BARBIES OWNED: 0</b>
+            <a class="btn flow-text" id="getBarbies">GET BARBIES(COST: 400)</a>
+            <a class="btn flow-text" id="buyPetCrocodile">get a pet crocodile(cost: 900)</a>
+            <a class="btn flow-text" id="gamble">GAMBLE(COST: 20)</a>
+            <a class="btn flow-text" id="gotoBibleStudies">GO TO BIBLE STUDIES(COST: 3000)</a>
+            <a class="btn flow-text" id="postTikTok">POST ON TIKTOK(COST: 30)</a>
+            <a class="btn flow-text" id="mowLawn">MOW YOUR LAWN(COST: 10)</a>
+            <a class="btn flow-text" id="applyMcDonaldJob">APPLY FOR A JOB AT MCDONALDS(COST: 800)</a>
+            <a class="btn flow-text" id="seekHelp">SEEK HELP(COST: 400)</a>
+            <a class="btn flow-text" id="liveOnTwitch">LIVESTREAM ON TWITCH(COST: 900)</a>
+            <a class="btn flow-text" id="talkToOldMan">start a conversation with an old man(cost: 10)</a><a class="btn" id="playRoblox">play roblox(cost: 20)</a>
+        </div>
+        <div style="text-align: center;" id="unlockableLargePurchaseSection">
+            <a class="btn flow-text" id="buyWalmartCorp">BUY WALMART(COST: 762 TRILLION)</a>
+            <a class="btn" id="buyLetterA">buy legal rights to the letter &quot;a&quot;(cost: 999quad)</a>
+            <a class="btn" id="investInDogeCoin">invest in dogecoin(cost: 93000)</a>
+            <a class="btn" id="buyStrangeTeleport">buy a strange teleport machine(cost: 140050)</a>
+            <a class="btn" id="getNewIPhone">get a new iphone(cost: 90250)</a>
+            <a class="btn" id="buyGTA6">BUY GTA6(COST: 85000)</a>
+            <a class="btn" id="learnMathematician">LEARN HOW TO BE A mathematician(COST: 900000)</a>
+            <a class="btn" id="emoBand">Start an emo band(cost: 803003)</a>
+        </div>
+        <script>
+            //--counters and such//
+            const pointCount = document.getElementById("pointCount");
+            const sadFriendCount = document.getElementById("sadFriendCount");
+            const barbiesOwned = document.getElementById("barbiesOwned");
+            const emoSongProduceCount = document.getElementById("emoSongProduceCount");      // emo song produce count(non interactable element)
+            //buttons and such//
+            const unlockableLargePurchaseSection = document.getElementById("unlockableLargePurchaseSection");
+            const buySadFriend = document.getElementById("buySadFriend");  
+            const buyWalmartCorp = document.getElementById("buyWalmartCorp");
+            const buyLetterA = document.getElementById("buyLetterA");
+            const investInDogeCoin = document.getElementById("investInDogeCoin");
+            const buyStrangeTeleport = document.getElementById("buyStrangeTeleport");
+            const getNewIPhone = document.getElementById("getNewIPhone");
+            const buyGTA6 = document.getElementById("buyGTA6");
+            const learnMathematician = document.getElementById("learnMathematician");
+            const emoBand = document.getElementById("emoBand");
+            const getSad = document.getElementById("getSad");
+            const goOutside = document.getElementById("goOutside");
+            const watchYouTube = document.getElementById("watchYouTube");
+            const makeEmoMusic = document.getElementById("makeEmoMusic");
+            const yellAtCivilians = document.getElementById("yellAtCivilians");
+            const controversialTweet = document.getElementById("controversialTweet");
+            const screamAtBirds = document.getElementById("screamAtBirds");
+            const talkToYourself = document.getElementById("talkToYourself");
+            const playSubwaySurf = document.getElementById("playSubwaySurf");
+            const yogaClass = document.getElementById("yogaClass");
+            const bangOnWall = document.getElementById("bangOnWall");
+            const cry = document.getElementById("cry");
+            const sleepSidewalk = document.getElementById("sleepSidewalk");
+            const investCrypto = document.getElementById("investCrypto");
+            const animalShelterSignup = document.getElementById("animalShelterSignup");
+            const callRandomPhoneNumber = document.getElementById("callRandomPhoneNumber");
+            const eatFoodFromOutside = document.getElementById("eatFoodFromOutside");
+            const bumpRandomPeople = document.getElementById("bumpRandomPeople");
+            const payHouseBills = document.getElementById("payHouseBills");
+            const cryOutside = document.getElementById("cryOutside");
+            const sleepAllDay = document.getElementById("sleepAllDay");
+            const stareAtWall = document.getElementById("stareAtWall");
+            const getBarbies = document.getElementById("getBarbies");
+            const buyPetCrocodile = document.getElementById("buyPetCrocodile");
+            const gamble = document.getElementById("gamble");
+            const gotoBibleStudies = document.getElementById("gotoBibleStudies");
+            const postTikTok = document.getElementById("postTikTok");
+            const mowLawn = document.getElementById("mowLawn");
+            const applyMcDonaldJob = document.getElementById("applyMcDonaldJob");
+            const seekHelp = document.getElementById("seekHelp");
+            const liveOnTwitch = document.getElementById("liveOnTwitch");
+            const talkToOldMan = document.getElementById("talkToOldMan");
+            const playRoblox = document.getElementById("playRoblox");
+            //default values// boolean values are false stating that the item is not bought yet
+            // Declare variables in global scope
+            let points = 0;
+            let sadFriendCountValue = 0;
+            let emoSongProduceCountValue = 0;
+            let barbiesOwnedValue = 0;
+            let boughtWalmartCorp = false;
+            let boughtLetterA = false;
+            let boughtStrangeTeleport = false;
+            let boughtIPhone = false;
+            let boughtGTA6 = false;
+            let boughtMathematician = false;
+            let boughtEmoBand = false;
+
+            // Replace the existing DOMContentLoaded event listener
+            window.addEventListener("DOMContentLoaded", function() {
+                const saveFile = localStorage.getItem("DC2_SaveFile");
+                if (saveFile) {
+                    // Load saved data if it exists
+                    const savedData = JSON.parse(saveFile);
+                    points = savedData.points;
+                    sadFriendCountValue = savedData.sadFriendCountValue;
+                    emoSongProduceCountValue = savedData.emoSongProduceCountValue;
+                    barbiesOwnedValue = savedData.barbiesOwnedValue;
+                    boughtWalmartCorp = savedData.boughtWalmartCorp;
+                    boughtLetterA = savedData.boughtLetterA;
+                    boughtStrangeTeleport = savedData.boughtStrangeTeleport;
+                    boughtIPhone = savedData.boughtIPhone;
+                    boughtGTA6 = savedData.boughtGTA6;
+                    boughtMathematician = savedData.boughtMathematician;
+                    boughtEmoBand = savedData.boughtEmoBand;
+                }
+                
+                // Initialize display
+                updatePointCount();
+                updateSadFriendCount();
+                updateBarbiesOwned();
+                updateEmoSongProduceCount();
+            });
+
+                const saveFile = localStorage.getItem("DC2_SaveFile");
+                if (!saveFile || saveFile === "null" || saveFile === "") {
+                    let boughtWalmartCorp = false;
+                    let boughtLetterA = false;
+                    let points = 0;
+                    let sadFriendCountValue = 0;
+                    let emoSongProduceCountValue = 0;
+                    let barbiesOwnedValue = 0;
+                    let boughtStrangeTeleport = false;
+                    let boughtIPhone = false;
+                    let boughtGTA6 = false;
+                    let boughtMathematician = false;
+                    let boughtEmoBand = false;
+                    updatePointCount();
+                }
+                //functions for display updates and unlocks
+
+                // Fix the display update functions
+                function updatePointCount() {
+                    pointCount.innerHTML = "Points: " + points;
+                }
+
+                function updateSadFriendCount() {
+                    sadFriendCount.innerHTML = "YOU HAVE " + sadFriendCountValue + " SAD FRIENDS(LIMIT 100)";
+                }
+
+                function updateBarbiesOwned() {
+                    barbiesOwned.innerHTML = "BARBIES OWNED: " + barbiesOwnedValue;
+                }
+
+                function updateEmoSongProduceCount() {
+                    emoSongProduceCount.innerHTML = "EMO SONGS PRODUCED: " + emoSongProduceCountValue;
+                }
+
+                function unlockLPSwhenPointsHigh() {
+                    const unlockThreshold = 4000000;
+                    if (points >= unlockThreshold) {
+                        unlockableLargePurchaseSection.style.display = "block";
+                    }
+                }
+            //buying functions
+
+            function yellAtCivilians() {
+                if (points >= 30000) {
+                    points -= 30000;
+                    points += (math.floor(math.random)*25)
+                }
+            }
+            function screamAtBirdsOutside() {
+                if (points >= 20) {
+                    points -= 20;
+                    points += (math.floor(math.random)*2+math.random);
+                }
+            }
+            function controversialTweet() {
+                if (points >= 200) {
+                    points -= 200;
+                    points += (math.floor(math.random)*23.2397688)
+                }
+            }
+            function talkToYourself() {
+                if (points >= 100) {
+                points -= 100;
+                points += math.random*20*math.floor
+                }
+            }
+            //sybo games pls dont dmca claim this project..
+            function playSubwaySurfers() {
+                if (points >= 10)
+                points -= 10;
+                points += (math.floor(math.random)*25)
+            }
+            function goToYogaClass() {
+                if (points >= 90) {
+                    points -= 90;
+                    points += (math.floor(math.random)*25)
+                }
+            }
+            function bangOnWall() {
+                if (points >= 10) {
+                    points -= 10;
+                    points += (math.floor(math.random)*5)
+                }
+            }
+            function cryBecusWhyNot() {
+                if (points >= 100) {
+                    points -= 100;
+                    points += (math.floor(math.random)*2+math.random)
+                }
+            }
+            function sleeponSideWalk() {
+                if (points >= 30) {
+                    points -= 30;
+                    points += (math.floor(math.random)*5)
+                }
+            }
+            function InvestCrypto() {
+                if (points >= 2000) {
+                    points -= 2000;
+                    points += (math.floor(math.random)*115)
+                }
+            }
+            function signUpForAnimalShelter() {
+                if (points >= 10) {
+                    points -= 10;
+                    points += (math.floor(math.random)*22)
+                }
+            }
+            function callRandomNumber() {
+                if (points >= 90) {
+                    points -= 90;
+                    points += (math.floor(math.random)*18.2)
+                }
+            }
+            function EatSomeFoodFromOutSide() {
+                if (points >= 2) {
+                    points -= 2;
+                    points += (math.floor(math.random)*4+math.random(math.random)(math.floor(math.random*2)))
+                }
+            }
+            function intentionallyBumpIntoPerson() {
+                if (points >= 90) {
+                    points -= 90;
+                    points += (math.floor(math.random)*25)
+                }
+            }
+            function payHouseBills() {
+                if (points >= 9000) {
+                    points -= 40000;
+                    points += (math.floor(math.random)*25)
+                }
+            }
+            function cryOutside() {
+                if (points >= 90) {
+                    points -= 90;
+                    points += (math.floor(math.random)*25)
+                }
+            }
+            function sleepAllDay() {
+                if (points >= 90) {
+                    points -= 90;
+                    points += (math.floor(math.random)*25)
+                }
+            }
+            function goToYogaClass() {
+                if (points >= 200) {
+                    points -= 200;
+                    points += (math.floor(math.random)*25)
+                }
+            }
+            function saveAllValuesLocalStorage() {
+                localStorage.setItem("DC2_SaveFile", JSON.stringify({
+                    points: points,
+                    sadFriendCountValue: sadFriendCountValue,
+                    emoSongProduceCountValue: emoSongProduceCountValue,
+                    barbiesOwnedValue: barbiesOwnedValue,
+                    boughtWalmartCorp: boughtWalmartCorp,
+                    boughtLetterA: boughtLetterA,
+                    boughtStrangeTeleport: boughtStrangeTeleport,
+                    boughtIPhone: boughtIPhone,
+                    boughtGTA6: boughtGTA6,
+                    boughtMathematician: boughtMathematician,
+                    boughtEmoBand: boughtEmoBand
+                }));
+            }
+            //click event listeners for buttons
+            getSad.addEventListener("click", function() {
+                points += 1;
+                updatePointCount();
+                saveAllValuesLocalStorage();
+            });
+            goOutside.addEventListener("click", function() {
+                if (points >= 20) {
+                    points -= 20;
+                    points += points + (Math.floor(Math.random() * 10));
+                    updatePointCount();
+                    saveAllValuesLocalStorage();
+                }
+            });
+        </script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="materialize/js/materialize.js"></script>
+        <script>
+            $(document).ready(function() { M.AutoInit() });
+        </script>
+    </body>
+</html>
