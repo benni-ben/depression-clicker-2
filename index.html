@@ -53,14 +53,14 @@
             <a class="btn flow-text" id="liveOnTwitch">LIVESTREAM ON TWITCH(COST: 900)</a>
             <a class="btn flow-text" id="talkToOldMan">start a conversation with an old man(cost: 10)</a><a class="btn" id="playRoblox">play roblox(cost: 20)</a>
         </div>
-        <div style="text-align: center;" id="unlockableLargePurchaseSection">
+        <div style="text-align: center;" id="unlockableLargePurchaseSection" style:none>
             <a class="btn flow-text" id="buyWalmartCorp">BUY WALMART(COST: 762 TRILLION)</a>
             <a class="btn" id="buyLetterA">buy legal rights to the letter &quot;a&quot;(cost: 999quad)</a>
             <a class="btn" id="investInDogeCoin">invest in dogecoin(cost: 93000)</a>
             <a class="btn" id="buyStrangeTeleport">buy a strange teleport machine(cost: 140050)</a>
             <a class="btn" id="getNewIPhone">get a new iphone(cost: 90250)</a>
             <a class="btn" id="buyGTA6">BUY GTA6(COST: 85000)</a>
-            <a class="btn" id="learnMathematician">LEARN HOW TO BE A mathematician(COST: 900000)</a>
+            <a class="btn" id="learnMathematician">LEARN HOW TO BE A Mathematician(COST: 900000)</a>
             <a class="btn" id="emoBand">Start an emo band(cost: 803003)</a>
         </div>
         <script>
@@ -68,7 +68,7 @@
             const pointCount = document.getElementById("pointCount");
             const sadFriendCount = document.getElementById("sadFriendCount");
             const barbiesOwned = document.getElementById("barbiesOwned");
-            const emoSongProduceCount = document.getElementById("emoSongProduceCount");      // emo song produce count(non interactable element)
+            const emoSongProduceCount = document.getElementById("emoSongProduceCount"); // emo song produce count(non interactable element)
             //buttons and such//
             const unlockableLargePurchaseSection = document.getElementById("unlockableLargePurchaseSection");
             const buySadFriend = document.getElementById("buySadFriend");  
@@ -113,65 +113,24 @@
             const liveOnTwitch = document.getElementById("liveOnTwitch");
             const talkToOldMan = document.getElementById("talkToOldMan");
             const playRoblox = document.getElementById("playRoblox");
-            //default values// boolean values are false stating that the item is not bought yet
-            // Declare variables in global scope
-            let points = 0;
-            let sadFriendCountValue = 0;
-            let emoSongProduceCountValue = 0;
-            let barbiesOwnedValue = 0;
-            let boughtWalmartCorp = false;
-            let boughtLetterA = false;
-            let boughtStrangeTeleport = false;
-            let boughtIPhone = false;
-            let boughtGTA6 = false;
-            let boughtMathematician = false;
-            let boughtEmoBand = false;
-            window.addEventListener("DOMContentLoaded", function() {
-                const saveFile = localStorage.getItem("DC2_SaveFile");
-                if (saveFile) {
-                    const savedData = JSON.parse(saveFile);
-                    points = savedData.points;
-                    sadFriendCountValue = savedData.sadFriendCountValue;
-                    emoSongProduceCountValue = savedData.emoSongProduceCountValue;
-                    barbiesOwnedValue = savedData.barbiesOwnedValue;
-                    boughtWalmartCorp = savedData.boughtWalmartCorp;
-                    boughtLetterA = savedData.boughtLetterA;
-                    boughtStrangeTeleport = savedData.boughtStrangeTeleport;
-                    boughtIPhone = savedData.boughtIPhone;
-                    boughtGTA6 = savedData.boughtGTA6;
-                    boughtMathematician = savedData.boughtMathematician;
-                    boughtEmoBand = savedData.boughtEmoBand;
-                }
-                
-                // Initialize display
-                updatePointCount();
-                updateSadFriendCount();
-                updateBarbiesOwned();
-                updateEmoSongProduceCount();
-            });
-
-                const saveFile = localStorage.getItem("DC2_SaveFile");
-                if (!saveFile || saveFile === "null" || saveFile === "") {
-                    let boughtWalmartCorp = false;
-                    let boughtLetterA = false;
-                    let points = 0;
-                    let sadFriendCountValue = 0;
-                    let emoSongProduceCountValue = 0;
-                    let barbiesOwnedValue = 0;
-                    let boughtStrangeTeleport = false;
-                    let boughtIPhone = false;
-                    let boughtGTA6 = false;
-                    let boughtMathematician = false;
-                    let boughtEmoBand = false;
-                    updatePointCount();
-                }
+            //default values
+            // boolean values are false stating that the item is not bought yet(these may only be bought once)
+                let points = 0;
+                let sadFriendCountValue = 0;
+                let emoSongProduceCountValue = 0;
+                let crocodileOwnedValue = 0;
+                let barbiesOwnedValue = 0;
+                let boughtWalmartCorp = false;
+                let boughtLetterA = false;
+                let boughtStrangeTeleport = false;
+                let boughtIPhone = false;
+                let boughtGTA6 = false;
+                let boughtMathematician = false;
+                let boughtEmoBand = false;
                 //functions for display updates and unlocks
-
-                // Fix the display update functions
                 function updatePointCount() {
                     pointCount.innerHTML = "Points: " + points;
                 }
-
                 function updateSadFriendCount() {
                     sadFriendCount.innerHTML = "YOU HAVE " + sadFriendCountValue + " SAD FRIENDS(LIMIT 100)";
                 }
@@ -190,121 +149,367 @@
                         unlockableLargePurchaseSection.style.display = "block";
                     }
                 }
-            //buying functions
+            //click event listeners for buttons and localsave loading
+            addEventListener("DOMContentLoaded", function() {
+                //load saved data from localStorage(after DOM is loaded)
+                const savedData = JSON.parse(localStorage.getItem("dcpSave"));
+                if (savedData) {
+                    points = savedData.points || 0;
+                    sadFriendCountValue = savedData.sadFriendCountValue || 0;
+                    emoSongProduceCountValue = savedData.emoSongProduceCountValue || 0;
+                    crocodileOwnedValue = savedData.crocodileOwnedValue || 0;
+                    barbiesOwnedValue = savedData.barbiesOwnedValue || 0;
+                    boughtWalmartCorp = savedData.boughtWalmartCorp || false;
+                    boughtLetterA = savedData.boughtLetterA || false;
+                    boughtStrangeTeleport = savedData.boughtStrangeTeleport || false;
+                    boughtIPhone = savedData.boughtIPhone || false;
+                    boughtGTA6 = savedData.boughtGTA6 || false;
+                    boughtMathematician = savedData.boughtMathematician || false;
+                    boughtEmoBand = savedData.boughtEmoBand || false;
 
-            function yellAtCivilians() {
-                if (points >= 30000) {
-                    points -= 30000;
-                    points += (math.floor(math.random)*25)
+                    updatePointCount();
+                    updateSadFriendCount();
+                    updateBarbiesOwned();
+                    updateEmoSongProduceCount();
                 }
-            }
-            function screamAtBirdsOutside() {
+            });
+            getSad.addEventListener("click", function() {
+                points += 1;
+                updatePointCount();
+            });
+            goOutside.addEventListener("click", function() {
                 if (points >= 20) {
                     points -= 20;
-                    points += (math.floor(math.random)*2+math.random);
+                    points += (Math.floor(Math.random()*8))+4;
+                    updatePointCount();
                 }
-            }
-            function controversialTweet() {
+            });
+            watchYouTube.addEventListener("click", function() {
+                if (points >= 50) {
+                    points -= 50;
+                    points += points+(Math.floor(Math.random()*29));-(Math.floor(Math.random()*1));
+                    updatePointCount();
+                }
+            });
+            makeEmoMusic.addEventListener("click", function() {
+                if (points >= 5000 && boughtEmoBand == true) {
+                    points -= 5000;
+                    emoSongProduceCountValue += 1;
+                    //function to loosely simulate the sales of emo songs
+                    const randomTime = Math.floor(Math.random()*9000)+9000;
+                    setTimeout(function() {
+                        points += Math.floor(Math.random()*(100000-50+1))+50;
+                        updatePointCount();
+                    }, randomTime);
+                    updatePointCount();
+                    updateEmoSongProduceCount();
+                }
+            });
+            yellAtCivilians.addEventListener("click", function() {
+                if (points >= 30000) {
+                    points -= 30000;
+                    points += points+(Math.floor(Math.random()*100))-(Math.floor(Math.random)*2); 
+                    updatePointCount();
+                }
+            });
+            controversialTweet.addEventListener("click", function() {
                 if (points >= 200) {
                     points -= 200;
-                    points += (math.floor(math.random)*23.2397688)
+                    points += points+(Math.floor(Math.random()*100));
+                    updatePointCount();
                 }
-            }
-            function talkToYourself() {
-                if (points >= 100) {
-                points -= 100;
-                points += math.random*20*math.floor
+            });
+            screamAtBirds.addEventListener("click", function() {
+                if (points >= 20) {
+                    points -= 20;
+                    points += points+(Math.floor(Math.random()*10));
+                    updatePointCount();
                 }
-            }
-            //sybo games pls dont dmca claim this project..
-            function playSubwaySurfers() {
-                if (points >= 10)
-                points -= 10;
-                points += (math.floor(math.random)*25)
-            }
-            function goToYogaClass() {
-                if (points >= 90) {
-                    points -= 90;
-                    points += (math.floor(math.random)*25)
-                }
-            }
-            function bangOnWall() {
-                if (points >= 10) {
-                    points -= 10;
-                    points += (math.floor(math.random)*5)
-                }
-            }
-            function cryBecusWhyNot() {
+            });
+            talkToYourself.addEventListener("click", function() {
                 if (points >= 100) {
                     points -= 100;
-                    points += (math.floor(math.random)*2+math.random)
+                    points += points+(Math.floor(Math.random()*2));
+                    updatePointCount();
                 }
-            }
-            function sleeponSideWalk() {
-                if (points >= 30) {
-                    points -= 30;
-                    points += (math.floor(math.random)*5)
-                }
-            }
-            function InvestCrypto() {
-                if (points >= 2000) {
-                    points -= 2000;
-                    points += (math.floor(math.random)*115)
-                }
-            }
-            function signUpForAnimalShelter() {
+            });
+            playSubwaySurf.addEventListener("click", function() {
                 if (points >= 10) {
                     points -= 10;
-                    points += (math.floor(math.random)*22)
+                    points += points+(Math.floor(Math.random()*5))+8;
+                    updatePointCount();
                 }
-            }
-            function callRandomNumber() {
+            });
+            yogaClass.addEventListener("click", function() {
                 if (points >= 90) {
                     points -= 90;
-                    points += (math.floor(math.random)*18.2)
+                    points += points+(Math.floor(Math.random()*8))+4;
+                    updatePointCount();
                 }
-            }
-            function EatSomeFoodFromOutSide() {
+            });
+            bangOnWall.addEventListener("click", function() {
+                if (points >= 10) {
+                    points -= 10;
+                    points += points+(Math.floor(Math.random()*3))+8;
+                    updatePointCount();
+                }
+            });
+            cry.addEventListener("click", function() {
+                if (points >= 100) {
+                    points -= 100;
+                    points += points+(Math.floor(Math.random()*8));
+                    updatePointCount();
+                }
+            });
+            sleepSidewalk.addEventListener("click", function() {
+                if (points >= 30) {
+                    points -= 30;
+                    points += points+(Math.floor(Math.random()*10));
+                    updatePointCount();
+                }
+            });
+            investCrypto.addEventListener("click", function() {
+                if (points >= 2000) {
+                    points -= 2000;
+                    points += points+(Math.floor(Math.random()*1));
+                    //function will wait 5 seconds and add a random number of points between 0 and 10000(to roughly simulate the stock market)
+                    setTimeout(function() {
+                        points += Math.floor(Math.random()*(10000-0+1));
+                        updatePointCount();
+                    }, (Math.floor(Math.random()*3)));
+                    updatePointCount();
+                }
+            });
+            animalShelterSignup.addEventListener("click", function() {
+                if (points >= 10) {
+                    points -= 10;
+                    points += points+(Math.floor(Math.random()*5));
+                    updatePointCount();
+                }
+            });
+            callRandomPhoneNumber.addEventListener("click", function() {
+                if (points >= 90) {
+                    points -= 90;
+                    points += points+(Math.floor(Math.random()*20));
+                    updatePointCount();
+                }
+            });
+            eatFoodFromOutside.addEventListener("click", function() {
                 if (points >= 2) {
                     points -= 2;
-                    points += (math.floor(math.random)*4+math.random(math.random)(math.floor(math.random*2)))
+                    points += points+(Math.floor(Math.random()*4))-4;
+                    updatePointCount();
                 }
-            }
-            function intentionallyBumpIntoPerson() {
-                if (points >= 90) {
-                    points -= 90;
-                    points += (math.floor(math.random)*25)
+            });
+            bumpRandomPeople.addEventListener("click", function() {
+                if (points >= 50) {
+                    points -= 50;
+                    points += points+(Math.floor(Math.random()*10))-5;
+                    updatePointCount();
                 }
-            }
-            function payHouseBills() {
+            });
+            payHouseBills.addEventListener("click", function() {
                 if (points >= 9000) {
-                    points -= 40000;
-                    points += (math.floor(math.random)*25)
+                    points -= 9000;
+                    points += points+(Math.floor(Math.random()*10));
+                    updatePointCount();
                 }
-            }
-            function cryOutside() {
+            });
+            cryOutside.addEventListener("click", function() {
                 if (points >= 90) {
                     points -= 90;
-                    points += (math.floor(math.random)*25)
+                    points += points + (Math.floor(Math.random() * 20));
+                    updatePointCount();
                 }
-            }
-            function sleepAllDay() {
-                if (points >= 90) {
-                    points -= 90;
-                    points += (math.floor(math.random)*25)
-                }
-            }
-            function goToYogaClass() {
+            });
+            sleepAllDay.addEventListener("click", function() {
                 if (points >= 200) {
                     points -= 200;
-                    points += (math.floor(math.random)*25)
+                    points += points+(Math.floor(Math.random()*5)); 
+                    updatePointCount();
                 }
-            }
-            function saveAllValuesLocalStorage() {
-                localStorage.setItem("DC2_SaveFile", JSON.stringify({
+            });
+            stareAtWall.addEventListener("click", function() {
+                if (points >= 4000) {
+                    points -= 4000;
+                    points += points+(Math.floor(Math.random()*48));
+                    updatePointCount();
+                }
+            });
+            getBarbies.addEventListener("click", function() {
+                if (points >= 400) {
+                    points -= 400;
+                    barbiesOwnedValue += 1;
+                    updatePointCount();
+                    updateBarbiesOwned();
+                }
+            });
+            buyPetCrocodile.addEventListener("click", function() {
+                if (points >= 900) {
+                    points -= 900;
+                    points += points + (Math.floor(Math.random()*3));
+                    crocodileOwnedValue += 1;
+                    const randomTime = Math.floor(Math.random()+5000)+5000;
+                    setTimeout(function() {
+                        points += (Math.floor(Math.random()*(500-40+1))+40)*crocodileOwnedValue;
+                        updatePointCount();
+                    }, randomTime);
+                    updatePointCount();
+                }
+            });
+            gamble.addEventListener("click", function() {
+                if (points >= 20) {
+                    points -= 20;
+                    points += points+(Math.floor(Math.random()*10))-5;
+                    updatePointCount();
+                }
+            });
+            gotoBibleStudies.addEventListener("click", function() {
+                if (points >= 3000) {
+                    points -= 3000;
+                    points += points+(Math.floor(Math.random()*100))-40;
+                    updatePointCount();
+                }
+            });
+            postTikTok.addEventListener("click", function() {
+                if (points >= 30) {
+                    points -= 30;
+                    points += points+(Math.floor(Math.random()*12))-5;
+                    updatePointCount();
+                }
+            });
+            mowLawn.addEventListener("click", function() {
+                if (points >= 10) {
+                    points -= 10;
+                    points += points+(Math.floor(Math.random()*5));
+                    updatePointCount();
+                }
+            });
+            applyMcDonaldJob.addEventListener("click", function() {
+                if (points >= 800) {
+                    points -= 800;
+                    points += points+(Math.floor(Math.random()*10));
+                    updatePointCount();
+                }
+            });
+            seekHelp.addEventListener("click", function() {
+                if (points >= 400) {
+                    points -= 400;
+                    points += points+(Math.floor(Math.random()*1));
+                    updatePointCount();
+                }
+            });
+            liveOnTwitch.addEventListener("click", function() {
+                if (points >= 900) {
+                    points -= 900;
+                    points += points+(Math.floor(Math.random()*100));
+                    updatePointCount();
+                }
+            });
+            talkToOldMan.addEventListener("click", function() {
+                if (points >= 10) {
+                    points -= 10;
+                    points += points+(Math.floor(Math.random()*5))+2+crocodileOwnedValue; //adding the crocodile owned value because talking to old men somehow correlates to crocodiles
+                    updatePointCount();
+                }
+            });
+            playRoblox.addEventListener("click", function() {
+                if (points >= 20) {
+                    points -= 20;
+                    points += points+(Math.floor(Math.random()*5));
+                    updatePointCount();
+                }
+            });
+            buySadFriend.addEventListener("click", function() {
+                if (points >= 100 && sadFriendCountValue < 100) {
+                    points -= 100;
+                    sadFriendCountValue += 1;
+                    updatePointCount();
+                    updateSadFriendCount();
+                    //one points per second for each sad friend
+                    setInterval(function() {
+                        points += sadFriendCountValue;
+                        updatePointCount();
+                    }, 1000);
+                }
+            });
+            buyWalmartCorp.addEventListener("click", function() {
+                if (points >= 762000000000000) {
+                    points -= 762000000000000;
+                    boughtWalmartCorp = true;
+                    updatePointCount();
+                    setTimeout(function() {
+                        points += Math.floor(Math.random()*(1000000-10000+1))+10000;
+                        updatePointCount();
+                    }, 120000);
+                }
+            });
+            buyLetterA.addEventListener("click", function() {
+                if (points >= 999000000000000000000) {
+                    points -= 999000000000000000000;
+                    boughtLetterA = true;
+                    updatePointCount();
+                    setTimeout(function() {
+                        points += Math.floor(Math.random()*(4000-100+1))+100;
+                        updatePointCount();
+                    }, 40000);
+                }
+            });
+            investInDogeCoin.addEventListener("click", function() {
+                if (points >= 93000) {
+                    points -= 93000;
+                    points += points+(Math.floor(Math.random()*10));
+                    updatePointCount();
+                    setTimeout(function() {
+                        points += Math.floor(Math.random()*(9000));
+                        updatePointCount();
+                    }, 60000);
+                }
+            });
+            buyStrangeTeleport.addEventListener("click", function() {
+                if (points >= 140050 && boughtStrangeTeleport == false) {
+                    points -= 140050;
+                    boughtStrangeTeleport = true;
+                    updatePointCount();
+                }
+            });
+            getNewIPhone.addEventListener("click", function() {
+                if (points >= 90250 && boughtIPhone == false) {
+                    points -= 90250;
+                    boughtIPhone = true;
+                    updatePointCount();
+                    points += 999+(Math.floor(Math.random)*2)*3;
+                }
+            });
+            buyGTA6.addEventListener("click", function() {
+                if (points >= 85000 && boughtGTA6 == false) {
+                    points -= 85000;
+                    boughtGTA6 = true;
+                    updatePointCount();
+                }
+            });
+            learnMathematician.addEventListener("click", function() {
+                if (points >= 900000 && learnMathematician == false) {
+                    points -= 900000;
+                    boughtMathematician = true;
+                    points += points+(Math.floor(Math.random()*1000))+600;
+                    updatePointCount();
+                }
+            });
+            emoBand.addEventListener("click", function() {
+                if (points >= 803003 && boughtEmoBand == false) {
+                    points -= 803003;
+                    boughtEmoBand = true;
+                    updatePointCount();
+                }
+            });
+            //save function
+            setInterval(function() {
+                localStorage.setItem("dcpSave", JSON.stringify({
                     points: points,
                     sadFriendCountValue: sadFriendCountValue,
                     emoSongProduceCountValue: emoSongProduceCountValue,
+                    crocodileOwnedValue: crocodileOwnedValue,
                     barbiesOwnedValue: barbiesOwnedValue,
                     boughtWalmartCorp: boughtWalmartCorp,
                     boughtLetterA: boughtLetterA,
@@ -314,21 +519,7 @@
                     boughtMathematician: boughtMathematician,
                     boughtEmoBand: boughtEmoBand
                 }));
-            }
-            //click event listeners for buttons
-            getSad.addEventListener("click", function() {
-                points += 1;
-                updatePointCount();
-                saveAllValuesLocalStorage();
-            });
-            goOutside.addEventListener("click", function() {
-                if (points >= 20) {
-                    points -= 20;
-                    points += points + (Math.floor(Math.random() * 10));
-                    updatePointCount();
-                    saveAllValuesLocalStorage();
-                }
-            });
+            }, 2000);
         </script>
         <script src="assets/js/jquery.min.js"></script>
         <script src="materialize/js/materialize.js"></script>
