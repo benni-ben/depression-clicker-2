@@ -14,12 +14,12 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
     </head>
     <body>
-        <div class="container" id="noticontain" style="background-color: rgba(237, 237, 237, 0.57); display: block; position: relative; top: -160px; visibility: hidden;">
-            <h4 style="font-family: 'Roboto', sans-serif; font-size: 30px; font-weight: 400; text-align: justify;" class="hoverable white">New Notification</h4>
+        <div class="container" id="noticontain" style="display: block; position: relative; top: -160px; visibility: hidden;">
+            <h4 id="notiheader" style="font-family: 'Roboto', sans-serif; font-size: 30px; font-weight: 400; text-align: justify;" class="white">New Notification</h4>
             <span style="font-family: 'Roboto', sans-serif; font-size: 16px;" id="notificationText"></span>
         </div>
         <div>
-            <h3 style="text-align: center;" class="hoverable">Depression Clicker 2</h3>
+            <h3 style="text-align: center;">Depression Clicker 2</h3>
             <h2 style="text-align: center; grid-area: 1 / 1 / 2 / 2; font-size: 40px;" id="pointCount">Points: 0</h2>
         </div>
         <div style="display: grid; text-align: center; justify-content: center; grid-column: 8 area / 9; grid-row: 9 area / 6; row-gap: 15px; flex-wrap: nowrap;" class="flow-text"><a class="btn flow-text" style="grid-area:3 / 1 / 4 / 2;" id="buySadFriend">GET SAD FRIEND(COST:100)</a>
@@ -27,7 +27,7 @@
             <b style="font-size: 17px; text-align: center; flex-direction: column-reverse;" id="sadFriendCount" class="flow-text">YOU HAVE 0 SAD FRIENDS(LIMIT 100)</b><a class="btn flow-text" id="goOutside">Go outside(COST: 20)</a><a class="btn flow-text" id="watchYouTube">WATCH YOUTUBE(COST: 50)</a><a class="btn flow-text" id="yellAtCivilians">YELL AT RANDOM CIVILIANS(COST: 30000)</a><a class="btn flow-text" id="controversialTweet">make a controversial tweet(cost:200)</a><a class="btn flow-text" id="screamAtBirds">SCREAM AT BIRDS OUTSIDE(COST: 20)</a><a class="btn flow-text" id="talkToYourself">TALK TO YOURSELF(COST: 100)</a><a class="btn flow-text" id="playSubwaySurf">PLAY SUBWAY SURFERS(COST: 10)</a><a class="btn flow-text" id="yogaClass">GO TO YOGA CLASS(COST: 90)</a><a class="btn flow-text" id="bangOnWall">BANG ON THE WALL(COST: 10)</a><a class="btn flow-text" id="cry">CRY BECAUSE WHY NOT(COST: 100)</a><a class="btn flow-text" id="sleepSidewalk">SLEEP ON THE SIDEWALK(COST: 30)</a><a class="btn flow-text" id="investCrypto">INVEST IN CRYPTO(COST: 2000)</a><a class="btn flow-text" id="animalShelterSignup">SIGN UP FOR AN ANIMAL SHELTER(COST: 10)</a><a class="btn flow-text" id="callRandomPhoneNumber">CALL A RANDOM NUMBER(COST: 90)</a><a class="btn flow-text" id="eatFoodFromOutside">EAT SOME FOOD YOU FOUND OUTSIDE(COST: 2)</a><a class="btn flow-text" id="bumpRandomPeople">INTENTIONALLY BUMP INTO SOMEONE(COST: 50)</a><a class="btn flow-text" id="payHouseBills">PAY YOUR HOUSE BILLS(COST: 9000)</a><a class="btn flow-text" id="cryOutside">CRY OUTSIDE(COST: 90)</a><a class="btn flow-text" id="sleepAllDay">SLEEP ALL DAY(COST: 200)</a><a class="btn flow-text" id="stareAtWall">STARE AT THE WALL(COST: 4000)</a><b style="font-size: 17px; text-align: center; flex-direction: column-reverse;" id="barbiesOwned" class="flow-text">BARBIES OWNED: 0</b><a class="btn flow-text" id="getBarbies">GET BARBIES(COST: 400)</a><a class="btn flow-text" id="buyPetCrocodile">get a pet crocodile(cost: 900)</a><a class="btn flow-text" id="gamble">GAMBLE(COST: 20)</a><a class="btn flow-text" id="gotoBibleStudies">GO TO BIBLE STUDIES(COST: 3000)</a><a class="btn flow-text" id="postTikTok">POST ON TIKTOK(COST: 30)</a><a class="btn flow-text" id="mowLawn">MOW YOUR LAWN(COST: 10)</a><a class="btn flow-text" id="applyMcDonaldJob">APPLY FOR A JOB AT MCDONALDS(COST: 800)</a><a class="btn flow-text" id="seekHelp">SEEK HELP(COST: 400)</a><a class="btn flow-text" id="liveOnTwitch">LIVESTREAM ON TWITCH(COST: 900)</a><a class="btn flow-text" id="talkToOldMan">start a conversation with an old man(cost: 10)</a>
             <a class="btn" id="playRoblox">play roblox(cost: 20)</a>
         </div>
-        <div style="text-align: center; display: none;" id="unlockableLargePurchaseSection" style:none><a class="btn flow-text" id="buyWalmartCorp">BUY WALMART(COST: 762 TRILLION)</a><a class="btn" id="buyLetterA">buy legal rights to the letter &quot;a&quot;(cost: 999quad)</a><a class="btn" id="investInDogeCoin">invest in dogecoin(cost: 93000)</a><a class="btn" id="buyStrangeTeleport">buy a strange teleport machine(cost: 140050)</a><a class="btn" id="getNewIPhone">get a new iphone(cost: 90250)</a><a class="btn" id="buyGTA6">BUY GTA6(COST: 85000)</a><a class="btn" id="learnMathematician">LEARN HOW TO BE A Mathematician(COST: 900000)</a>
+        <div style="text-align: center; display: none;" id="unlockableLargePurchaseSection" style:none><a class="btn flow-text" id="buyWalmartCorp">BUY WALMART(COST: 762 TRILLION)</a><a class="btn" id="buyLetterA">buy legal rights to the letter &quot;a&quot;(cost: 999quad)</a><a class="btn" id="buyStrangeTeleport">buy a strange teleport machine(cost: 140050)</a><a class="btn" id="getNewIPhone">get a new iphone(cost: 90250)</a><a class="btn" id="buyGTA6">BUY GTA6(COST: 85000)</a><a class="btn" id="learnMathematician">LEARN HOW TO BE A Mathematician(COST: 900000)</a>
         </div>
         <script>
             //--counters and such//
@@ -39,7 +39,6 @@
             const buySadFriend = document.getElementById("buySadFriend");  
             const buyWalmartCorp = document.getElementById("buyWalmartCorp");
             const buyLetterA = document.getElementById("buyLetterA");
-            const investInDogeCoin = document.getElementById("investInDogeCoin");
             const buyStrangeTeleport = document.getElementById("buyStrangeTeleport");
             const getNewIPhone = document.getElementById("getNewIPhone");
             const buyGTA6 = document.getElementById("buyGTA6");
@@ -76,12 +75,11 @@
             const liveOnTwitch = document.getElementById("liveOnTwitch");
             const talkToOldMan = document.getElementById("talkToOldMan");
             const playRoblox = document.getElementById("playRoblox");
-            const notifcationTect = document.getElementById("notificationText");
+            const notifcationText = document.getElementById("notificationText");
             //default values
             // boolean values are false stating that the item is not bought yet(these may only be bought once)
                 let points = 0;
                 let sadFriendCountValue = 0;
-                let emoSongProduceCountValue = 0;
                 let crocodileOwnedValue = 0;
                 let barbiesOwnedValue = 0;
                 let boughtWalmartCorp = false;
@@ -91,6 +89,8 @@
                 let boughtGTA6 = false;
                 let boughtMathematician = false;
                 let boughtEmoBand = false;
+                let text = ""
+                let stocks = 0;
                 //functions for display updates and unlocks
                 function updatePointCount() {
                     pointCount.innerHTML = "Points: " + points;
@@ -125,18 +125,23 @@
                     boughtGTA6 = savedData.boughtGTA6 || false;
                     boughtMathematician = savedData.boughtMathematician || false;
                     boughtEmoBand = savedData.boughtEmoBand || false;
-
+                    stocks = savedData.stocks || 0;
                     updatePointCount();
                     updateSadFriendCount();
                     updateBarbiesOwned();
                     updateEmoSongProduceCount();
                 }
             });
-            function notificationSend(text) {
-                notifcationTect.innerHTML = text;
+            function notificationSend(text,head) {
+                notifcationText.innerHTML = text;
                 noticontain.style.visibility = "visible";
-                //we tween the notification position to 0; then after 5 seconds it will go back to -160px
+                if (head) {
+                    notiheader.innerHTML = head;
+                } else {
+                    notiheader.innerHTML = "New Notification";
+                }
                 noticontain.style.transition = "top 0.5s ease-in-out";
+                noticontain.style.transition = "none";
                 noticontain.style.top = "0px";
                 setTimeout(function() {
                     noticontain.style.transition = "top 0.5s ease-in-out";
@@ -145,7 +150,7 @@
                         noticontain.style.visibility = "hidden";
                     }, 500);
                 }, 5000);
-            } //set text to whatever you want and call the notificationSend function to send a notification
+            }
 
             getSad.addEventListener("click", function() {
                 points += 1;
@@ -156,143 +161,177 @@
                     points -= 20;
                     points += (Math.floor(Math.random()*8))+4;
                     updatePointCount();
+                    notificationSend("You have gone outside and gotten some fresh air. You feel sad, earning you more points.");
                 }
             });
             watchYouTube.addEventListener("click", function() {
                 if (points >= 50) {
                     points -= 50;
-                    points += points+(Math.floor(Math.random()*29));-(Math.floor(Math.random()*1));
+                    let him = (Math.floor(Math.random()*29));+(Math.floor(Math.random()*1));
+                    points += him;
                     updatePointCount();
+                    notificationSend("You watched a sad video on YouTube. You remember how sad you are and you earn "+him+" points.");
                 }
             });
             yellAtCivilians.addEventListener("click", function() {
                 if (points >= 30000) {
                     points -= 30000;
-                    points += points+(Math.floor(Math.random()*100))-(Math.floor(Math.random)*2); 
+                    him = ((Math.floor(Math.random()*100))+(Math.floor(Math.random)*2)); 
+                    points += him;
                     updatePointCount();
+                    notificationSend("You yell at random civilians. They look at you confused, and you feel like they hate you. You earn "+him+" points. You also get arrested for harrassment, but a old white man with no hair bails you out of prison.");
                 }
             });
             controversialTweet.addEventListener("click", function() {
                 if (points >= 200) {
                     points -= 200;
-                    points += points+(Math.floor(Math.random()*100));
+                    him = (Math.floor(Math.random()*200));
+                    points += him;
                     updatePointCount();
+                    notificationSend("You made a controversial tweet, about how the name 'X' is better than the name 'Twitter'. You get a lot of hate, and you feel sad. You earn "+him+" points.");
                 }
             });
             screamAtBirds.addEventListener("click", function() {
                 if (points >= 20) {
                     points -= 20;
-                    points += points+(Math.floor(Math.random()*10));
+                    him = (Math.floor(Math.random()*10))
+                    points += him;
                     updatePointCount();
+                    notificationSend("You go outside and you scream at the birds. They look at you confused, and you feel like a dumbass. You earn "+him+" points.");
                 }
             });
             talkToYourself.addEventListener("click", function() {
                 if (points >= 100) {
                     points -= 100;
-                    points += points+(Math.floor(Math.random()*2));
+                    him = (Math.floor(Math.random()*200))
+                    points += him;
                     updatePointCount();
+                    notificationSend("You start an amazing conversation with yourself")
                 }
             });
             playSubwaySurf.addEventListener("click", function() {
                 if (points >= 10) {
                     points -= 10;
-                    points += points+(Math.floor(Math.random()*5))+8;
                     updatePointCount();
+                    notificationSend("You start to play a round of subway surfers. You feel entertained, making you lose points.")
                 }
             });
             yogaClass.addEventListener("click", function() {
                 if (points >= 90) {
                     points -= 90;
-                    points += points+(Math.floor(Math.random()*8))+4;
+                    him = (Math.floor(Math.random()*10))+2
+                    points += him;
                     updatePointCount();
+                    notificationSend("You go to a yoga class. You feel relaxed and you earn "+him+" points.");
                 }
             });
             bangOnWall.addEventListener("click", function() {
                 if (points >= 10) {
                     points -= 10;
-                    points += points+(Math.floor(Math.random()*3))+8;
+                    points += (Math.floor(Math.random()*3))+8;
                     updatePointCount();
+                    notificationSend("You bang on the wall. Your hands hurt, and you feel sad. You earn "+him+" points.");
                 }
             });
             cry.addEventListener("click", function() {
                 if (points >= 100) {
                     points -= 100;
-                    points += points+(Math.floor(Math.random()*8));
+                    him = (Math.floor(Math.random()*15))-2;
+                    points += him;
                     updatePointCount();
+                    notificationSend("You cry because you are sad. You feel sadder, and you earn "+him+" points.");
                 }
             });
             sleepSidewalk.addEventListener("click", function() {
                 if (points >= 30) {
                     points -= 30;
-                    points += points+(Math.floor(Math.random()*10));
+                    him = (Math.floor(Math.random()*10));
+                    points += him;
                     updatePointCount();
+                    notificationSend("You sleep on the sidewalk. Multiple people step on you, and you feel sad. One person kicks you and laughs. You earn "+him+" points.");
                 }
             });
             investCrypto.addEventListener("click", function() {
                 if (points >= 2000) {
                     points -= 2000;
-                    points += points+(Math.floor(Math.random()*1));
-                    //function will wait 5 seconds and add a random number of points between 0 and 10000(to roughly simulate the stock market)
+                    //stock market :O
+                    stocks += 1;
                     setTimeout(function() {
-                        points += Math.floor(Math.random()*(10000-0+1));
-                        updatePointCount();
-                    }, (Math.floor(Math.random()*3)));
+                        rse = (Math.floor(Math.random()*4))*stocks; //rse is the points you earn or lose
+                            if (Math.floor(Math.random()*3) == 1) {
+                                points += rse;
+                                notificationSend("Oh my! Your stocks have been going up! You got "+rse+" points.");
+                            } else {
+                                points -= points-rse;
+                                notificationSend("Uh oh... Your stocks have tanked... You lost "+rse+" points.");
+                            }
+                                updatePointCount();
+                            }, 10+(Math.floor(Math.random()*5)));
                     updatePointCount();
                 }
             });
             animalShelterSignup.addEventListener("click", function() {
                 if (points >= 10) {
                     points -= 10;
-                    points += points+(Math.floor(Math.random()*5));
+                    notificationSend("You signed up for an animal shelter. You have earned... no points.");
                     updatePointCount();
                 }
             });
             callRandomPhoneNumber.addEventListener("click", function() {
                 if (points >= 90) {
                     points -= 90;
-                    points += points+(Math.floor(Math.random()*20));
+                    points += (Math.floor(Math.random()*20));
                     updatePointCount();
+                    notificationSend("You called a random number. They hang up on you, and you feel sad.");
                 }
             });
             eatFoodFromOutside.addEventListener("click", function() {
                 if (points >= 2) {
                     points -= 2;
-                    points += points+(Math.floor(Math.random()*4))-4;
+                    him = ((Math.floor(Math.random()*4))-4)
+                    points += him;
                     updatePointCount();
+                    notificationSend("You eat food you found outside. You feel sick, and you gain "+him+" points.");
                 }
             });
             bumpRandomPeople.addEventListener("click", function() {
                 if (points >= 50) {
                     points -= 50;
-                    points += points+(Math.floor(Math.random()*10))-5;
+                    him = (Math.floor(Math.random()*10))-5;
+                    points += him;
                     updatePointCount();
+                    notificationSend("You bump into a random person. They look at you and tell you to watch out. You feel sad, and you earn "+him+" points.");
                 }
             });
             payHouseBills.addEventListener("click", function() {
                 if (points >= 9000) {
                     points -= 9000;
-                    points += points+(Math.floor(Math.random()*10));
+                    him = (Math.floor(Math.random()*8))
+                    points += him;
                     updatePointCount();
+                    notificationSend("You pay your house bills. You feel sad, and you earn "+him+" points.");
                 }
             });
             cryOutside.addEventListener("click", function() {
                 if (points >= 90) {
                     points -= 90;
-                    points += points + (Math.floor(Math.random() * 20));
+                    him = (Math.floor(Math.random() * 2));
+                    points += him;
                     updatePointCount();
+                    notificationSend("You cry outside. People look at you weirdly, and you feel sad. You earn "+him+" points.");
                 }
             });
             sleepAllDay.addEventListener("click", function() {
                 if (points >= 200) {
                     points -= 200;
-                    points += points+(Math.floor(Math.random()*5)); 
+                    points += (Math.floor(Math.random()*5)); 
                     updatePointCount();
                 }
             });
             stareAtWall.addEventListener("click", function() {
                 if (points >= 4000) {
                     points -= 4000;
-                    points += points+(Math.floor(Math.random()*48));
+                    points += (Math.floor(Math.random()*48));
                     updatePointCount();
                 }
             });
@@ -307,12 +346,13 @@
             buyPetCrocodile.addEventListener("click", function() {
                 if (points >= 900) {
                     points -= 900;
-                    points += points + (Math.floor(Math.random()*3));
+                    points += (Math.floor(Math.random()*3));
                     crocodileOwnedValue += 1;
-                    const randomTime = Math.floor(Math.random()+5000)+5000;
+                    const randomTime = (Math.floor(Math.random()+50));
                     setTimeout(function() {
                         points += (Math.floor(Math.random()*(500-40+1))+40)*crocodileOwnedValue;
                         updatePointCount();
+                        notificationSend("Ouch. Your crocodile bit you. You feel sad and hurt, but you earn "+randomTime+" points.");
                     }, randomTime);
                     updatePointCount();
                 }
@@ -320,63 +360,63 @@
             gamble.addEventListener("click", function() {
                 if (points >= 20) {
                     points -= 20;
-                    points += points+(Math.floor(Math.random()*10))-5;
+                    points += ((Math.floor(Math.random()*10))-5);
                     updatePointCount();
                 }
             });
             gotoBibleStudies.addEventListener("click", function() {
                 if (points >= 3000) {
                     points -= 3000;
-                    points += points+(Math.floor(Math.random()*100))-40;
+                    points += (Math.floor(Math.random()*100))-40;
                     updatePointCount();
                 }
             });
             postTikTok.addEventListener("click", function() {
                 if (points >= 30) {
                     points -= 30;
-                    points += points+(Math.floor(Math.random()*12))-5;
+                    points += (Math.floor(Math.random()*12))-5;
                     updatePointCount();
                 }
             });
             mowLawn.addEventListener("click", function() {
                 if (points >= 10) {
                     points -= 10;
-                    points += points+(Math.floor(Math.random()*5));
+                    points += (Math.floor(Math.random()*5));
                     updatePointCount();
                 }
             });
             applyMcDonaldJob.addEventListener("click", function() {
                 if (points >= 800) {
                     points -= 800;
-                    points += points+(Math.floor(Math.random()*10));
+                    points += (Math.floor(Math.random()*10));
                     updatePointCount();
                 }
             });
             seekHelp.addEventListener("click", function() {
                 if (points >= 400) {
                     points -= 400;
-                    points += points+(Math.floor(Math.random()*1));
+                    points += (Math.floor(Math.random()*1));
                     updatePointCount();
                 }
             });
             liveOnTwitch.addEventListener("click", function() {
                 if (points >= 900) {
                     points -= 900;
-                    points += points+(Math.floor(Math.random()*100));
+                    points += (Math.floor(Math.random()*100));
                     updatePointCount();
                 }
             });
             talkToOldMan.addEventListener("click", function() {
                 if (points >= 10) {
                     points -= 10;
-                    points += points+(Math.floor(Math.random()*5))+2+crocodileOwnedValue; //adding the crocodile owned value because talking to old men somehow correlates to crocodiles
+                    points += (Math.floor(Math.random()*5))+2+crocodileOwnedValue; //adding the crocodile owned value because talking to old men somehow correlates to crocodiles
                     updatePointCount();
                 }
             });
             playRoblox.addEventListener("click", function() {
                 if (points >= 20) {
                     points -= 20;
-                    points += points+(Math.floor(Math.random()*5));
+                    points += (Math.floor(Math.random()*5));
                     updatePointCount();
                 }
             });
@@ -395,7 +435,7 @@
                     boughtWalmartCorp = true;
                     updatePointCount();
                     setTimeout(function() {
-                        points += Math.floor(Math.random()*(1000000-10000+1))+10000;
+                        points += (Math.floor(Math.random()*(1000000-10000+1))+10000);
                         updatePointCount();
                     }, 120000);
                 }
@@ -406,20 +446,9 @@
                     boughtLetterA = true;
                     updatePointCount();
                     setTimeout(function() {
-                        points += Math.floor(Math.random()*(4000-100+1))+100;
+                        points += (Math.floor(Math.random()*(4127))+100);
                         updatePointCount();
                     }, 40000);
-                }
-            });
-            investInDogeCoin.addEventListener("click", function() {
-                if (points >= 93000) {
-                    points -= 93000;
-                    points += points+(Math.floor(Math.random()*10));
-                    updatePointCount();
-                    setTimeout(function() {
-                        points += Math.floor(Math.random()*(9000));
-                        updatePointCount();
-                    }, 60000);
                 }
             });
             buyStrangeTeleport.addEventListener("click", function() {
@@ -427,6 +456,7 @@
                     points -= 140050;
                     boughtStrangeTeleport = true;
                     updatePointCount();
+                    notificationSend("You have bought a strange teleporter. You now feel... nothing. You forgot why you bought it in the first place.");
                 }
             });
             getNewIPhone.addEventListener("click", function() {
@@ -434,7 +464,7 @@
                     points -= 90250;
                     boughtIPhone = true;
                     updatePointCount();
-                    points += 999+(Math.floor(Math.random)*2)*3;
+                    points += (999+(Math.floor(Math.random)*2)*3);
                 }
             });
             buyGTA6.addEventListener("click", function() {
@@ -448,7 +478,7 @@
                 if (points >= 900000 && learnMathematician == false) {
                     points -= 900000;
                     boughtMathematician = true;
-                    points += points+(Math.floor(Math.random()*1000))+600;
+                    points += ((Math.floor(Math.random()*1000))+600);
                     updatePointCount();
                 }
             });
@@ -465,17 +495,27 @@
                     boughtIPhone: boughtIPhone,
                     boughtGTA6: boughtGTA6,
                     boughtMathematician: boughtMathematician,
-                    boughtEmoBand: boughtEmoBand
+                    boughtEmoBand: boughtEmoBand,
+                    stocks: stocks
                 }));
             }, 2000);
-            //invertals
+
+            setInterval(function() { //just in case someone tries to cheat :)
+                localStorage.setItem(math.random,JSON.stringify({
+                    "no cheating": nocheating
+                }));
+            }, 2000);
+                addEventListener("DOMContentLoaded", function() {
+                    if (points >= 1000000) {
+                        notificationSend("You have unlocked the large purchase section! Find it at the bottom!");
+                        unlockableLargePurchaseSection.style.display = "block";
+                        done = true;
+                    }
+                });
             setInterval(function() {
                 if (sadFriendCountValue > 0) {
                     points += sadFriendCountValue;
                     updatePointCount();
-                if (points >= 1000000) {
-                    unlockableLargePurchaseSection.style.display = "block";
-                }
                 }
             }, 1000);
         </script>
