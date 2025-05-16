@@ -30,6 +30,8 @@
         <div style="text-align: center; display: none;" id="unlockableLargePurchaseSection" style:none><a class="btn flow-text" id="buyWalmartCorp">BUY WALMART(COST: 762 TRILLION)</a><a class="btn" id="buyLetterA">buy legal rights to the letter &quot;a&quot;(cost: 999quad)</a><a class="btn" id="buyStrangeTeleport">buy a strange teleport machine(cost: 140050)</a><a class="btn" id="getNewIPhone">get a new iphone(cost: 90250)</a><a class="btn" id="buyGTA6">BUY GTA6(COST: 85000)</a><a class="btn" id="learnMathematician">LEARN HOW TO BE A Mathematician(COST: 900000)</a>
         </div>
         <script>
+
+
             //--counters and such//
             const pointCount = document.getElementById("pointCount");
             const sadFriendCount = document.getElementById("sadFriendCount");
@@ -89,6 +91,7 @@
                 let boughtGTA6 = false;
                 let boughtMathematician = false;
                 let boughtEmoBand = false;
+                let mcDonaldsHasBeenApplied = false;
                 let text = ""
                 let stocks = 0;
                 //functions for display updates and unlocks
@@ -124,6 +127,7 @@
                     boughtIPhone = savedData.boughtIPhone || false;
                     boughtGTA6 = savedData.boughtGTA6 || false;
                     boughtMathematician = savedData.boughtMathematician || false;
+                    mcDonaldsHasBeenApplied = savedData.mcDonaldsHasBeenApplied || false;
                     boughtEmoBand = savedData.boughtEmoBand || false;
                     stocks = savedData.stocks || 0;
                     updatePointCount();
@@ -167,7 +171,7 @@
             watchYouTube.addEventListener("click", function() {
                 if (points >= 50) {
                     points -= 50;
-                    let him = (Math.floor(Math.random()*29));+(Math.floor(Math.random()*1));
+                    him = (Math.floor(Math.random()*51));
                     points += him;
                     updatePointCount();
                     notificationSend("You watched a sad video on YouTube. You remember how sad you are and you earn "+him+" points.");
@@ -176,7 +180,7 @@
             yellAtCivilians.addEventListener("click", function() {
                 if (points >= 30000) {
                     points -= 30000;
-                    him = ((Math.floor(Math.random()*100))+(Math.floor(Math.random)*2)); 
+                    him = (Math.floor((Math.floor(Math.random()*100))));
                     points += him;
                     updatePointCount();
                     notificationSend("You yell at random civilians. They look at you confused, and you feel like they hate you. You earn "+him+" points. You also get arrested for harrassment, but a old white man with no hair bails you out of prison.");
@@ -185,7 +189,7 @@
             controversialTweet.addEventListener("click", function() {
                 if (points >= 200) {
                     points -= 200;
-                    him = (Math.floor(Math.random()*200));
+                    him = (Math.floor(Math.random()*230));
                     points += him;
                     updatePointCount();
                     notificationSend("You made a controversial tweet, about how the name 'X' is better than the name 'Twitter'. You get a lot of hate, and you feel sad. You earn "+him+" points.");
@@ -194,7 +198,7 @@
             screamAtBirds.addEventListener("click", function() {
                 if (points >= 20) {
                     points -= 20;
-                    him = (Math.floor(Math.random()*10))
+                    him = (Math.floor(Math.random()*30))
                     points += him;
                     updatePointCount();
                     notificationSend("You go outside and you scream at the birds. They look at you confused, and you feel like a dumbass. You earn "+him+" points.");
@@ -203,10 +207,10 @@
             talkToYourself.addEventListener("click", function() {
                 if (points >= 100) {
                     points -= 100;
-                    him = (Math.floor(Math.random()*200))
+                    him = (Math.floor(Math.random()*600))
                     points += him;
                     updatePointCount();
-                    notificationSend("You start an amazing conversation with yourself")
+                    notificationSend("You start an amazing conversation with yourself, specifically about the impact of thugs.")
                 }
             });
             playSubwaySurf.addEventListener("click", function() {
@@ -219,7 +223,7 @@
             yogaClass.addEventListener("click", function() {
                 if (points >= 90) {
                     points -= 90;
-                    him = (Math.floor(Math.random()*10))+2
+                    him = (Math.floor(Math.random()*105));
                     points += him;
                     updatePointCount();
                     notificationSend("You go to a yoga class. You feel relaxed and you earn "+him+" points.");
@@ -228,7 +232,7 @@
             bangOnWall.addEventListener("click", function() {
                 if (points >= 10) {
                     points -= 10;
-                    points += (Math.floor(Math.random()*3))+8;
+                    points += (Math.floor(Math.random()*43));
                     updatePointCount();
                     notificationSend("You bang on the wall. Your hands hurt, and you feel sad. You earn "+him+" points.");
                 }
@@ -236,7 +240,7 @@
             cry.addEventListener("click", function() {
                 if (points >= 100) {
                     points -= 100;
-                    him = (Math.floor(Math.random()*15))-2;
+                    him = (Math.floor(Math.random()*550));
                     points += him;
                     updatePointCount();
                     notificationSend("You cry because you are sad. You feel sadder, and you earn "+him+" points.");
@@ -246,9 +250,10 @@
                 if (points >= 30) {
                     points -= 30;
                     him = (Math.floor(Math.random()*10));
-                    points += him;
+                    extrarandom = ((Math.floor(Math.random()*Math.random()*25)));
+                    points += him+extrarandom;
                     updatePointCount();
-                    notificationSend("You sleep on the sidewalk. Multiple people step on you, and you feel sad. One person kicks you and laughs. You earn "+him+" points.");
+                    notificationSend("You sleep on the sidewalk. Multiple people step on you, and you feel sad. One person kicks you and laughs. You earn "+(him+extrarandom)+" points.");
                 }
             });
             investCrypto.addEventListener("click", function() {
@@ -262,11 +267,11 @@
                                 points += rse;
                                 notificationSend("Oh my! Your stocks have been going up! You got "+rse+" points.");
                             } else {
-                                points -= points-rse;
+                                points -= rse;
                                 notificationSend("Uh oh... Your stocks have tanked... You lost "+rse+" points.");
                             }
                                 updatePointCount();
-                            }, 10+(Math.floor(Math.random()*5)));
+                            }, 10+(Math.floor(Math.random()*51)));
                     updatePointCount();
                 }
             });
@@ -288,7 +293,7 @@
             eatFoodFromOutside.addEventListener("click", function() {
                 if (points >= 2) {
                     points -= 2;
-                    him = ((Math.floor(Math.random()*4))-4)
+                    him = ((Math.floor(Math.random()*4))*4)
                     points += him;
                     updatePointCount();
                     notificationSend("You eat food you found outside. You feel sick, and you gain "+him+" points.");
@@ -315,7 +320,7 @@
             cryOutside.addEventListener("click", function() {
                 if (points >= 90) {
                     points -= 90;
-                    him = (Math.floor(Math.random() * 2));
+                    him = (Math.floor(Math.random()*28));
                     points += him;
                     updatePointCount();
                     notificationSend("You cry outside. People look at you weirdly, and you feel sad. You earn "+him+" points.");
@@ -324,8 +329,10 @@
             sleepAllDay.addEventListener("click", function() {
                 if (points >= 200) {
                     points -= 200;
-                    points += (Math.floor(Math.random()*5)); 
+                    him = (Math.floor(Math.random()*502))
+                    points += him; 
                     updatePointCount();
+                    notificationSend("You sleep all day. You feel sad, and you earn "+him+" points.");
                 }
             });
             stareAtWall.addEventListener("click", function() {
@@ -333,6 +340,7 @@
                     points -= 4000;
                     points += (Math.floor(Math.random()*48));
                     updatePointCount();
+                    notificationSend("You stare at the wall. You have an interesting experience thinking about how the world exists while you stare at the wall. After a while, you start seeing odd figures. You earn "+him+" points.");
                 }
             });
             getBarbies.addEventListener("click", function() {
@@ -341,6 +349,7 @@
                     barbiesOwnedValue += 1;
                     updatePointCount();
                     updateBarbiesOwned();
+                    notificationSend("You bought a barbie! What are you going to do with it?");
                 }
             });
             buyPetCrocodile.addEventListener("click", function() {
@@ -352,7 +361,7 @@
                     setTimeout(function() {
                         points += (Math.floor(Math.random()*(500-40+1))+40)*crocodileOwnedValue;
                         updatePointCount();
-                        notificationSend("Ouch. Your crocodile bit you. You feel sad and hurt, but you earn "+randomTime+" points.");
+                        notificationSend("Ouch. Your crocodile bit you. You feel sad and hurt, but you earn some points.");
                     }, randomTime);
                     updatePointCount();
                 }
@@ -362,6 +371,7 @@
                     points -= 20;
                     points += ((Math.floor(Math.random()*10))-5);
                     updatePointCount();
+                    notificationSend("You have gambled. You lost the points that you gambled.")
                 }
             });
             gotoBibleStudies.addEventListener("click", function() {
@@ -369,6 +379,7 @@
                     points -= 3000;
                     points += (Math.floor(Math.random()*100))-40;
                     updatePointCount();
+                    notificationSend("You go to bible studies.");
                 }
             });
             postTikTok.addEventListener("click", function() {
@@ -376,27 +387,37 @@
                     points -= 30;
                     points += (Math.floor(Math.random()*12))-5;
                     updatePointCount();
+                    notificationSend("You post a sped up video that you stole and overlayed subway surfers gameplay onto the video. You get points from the video.");
                 }
             });
             mowLawn.addEventListener("click", function() {
                 if (points >= 10) {
                     points -= 10;
-                    points += (Math.floor(Math.random()*5));
+                    him = (Math.floor(Math.random()*15))
+                    points += him;
                     updatePointCount();
+                    notificationSend("You mow your lawn. You feel sad, and you earn "+him+" points.");
                 }
             });
             applyMcDonaldJob.addEventListener("click", function() {
-                if (points >= 800) {
+                if (points >= 800 && mcDonaldsHasBeenApplied == false) {
                     points -= 800;
                     points += (Math.floor(Math.random()*10));
+                    mcDonaldsHasBeenApplied = true;
+                    setInterval(function() {
+                        points += 25;
+                        updatePointCount();
+                    }, 60000);
                     updatePointCount();
+                    notificationSend("You applied for a job at McDonalds. You get 25 points every minute.");
                 }
             });
             seekHelp.addEventListener("click", function() {
                 if (points >= 400) {
                     points -= 400;
-                    points += (Math.floor(Math.random()*1));
+                    points -= 400;
                     updatePointCount();
+                    notificationSend("You seek help. You feel better, and you lose 400 points.");
                 }
             });
             liveOnTwitch.addEventListener("click", function() {
@@ -409,15 +430,17 @@
             talkToOldMan.addEventListener("click", function() {
                 if (points >= 10) {
                     points -= 10;
-                    points += (Math.floor(Math.random()*5))+2+crocodileOwnedValue; //adding the crocodile owned value because talking to old men somehow correlates to crocodiles
+                    points += ((Math.floor(Math.random()*5))+(2+crocodileOwnedValue)); //adding the crocodile owned value because talking to old men somehow correlates to crocodiles
                     updatePointCount();
+                    notificationSend("You start a conversation with an old man named Dave. He talks to you for 2 hours, and you feel extremely sad and bored. You earn "+him+" points.");
                 }
             });
             playRoblox.addEventListener("click", function() {
                 if (points >= 20) {
                     points -= 20;
-                    points += (Math.floor(Math.random()*5));
+                    points += 25;
                     updatePointCount();
+                    notificationSend("You play roblox. You feel sad, and you earn 25 points.");
                 }
             });
             buySadFriend.addEventListener("click", function() {
@@ -435,7 +458,7 @@
                     boughtWalmartCorp = true;
                     updatePointCount();
                     setTimeout(function() {
-                        points += (Math.floor(Math.random()*(1000000-10000+1))+10000);
+                        points += (Math.floor(Math.random()*(1000000))+10000);
                         updatePointCount();
                     }, 120000);
                 }
@@ -464,7 +487,7 @@
                     points -= 90250;
                     boughtIPhone = true;
                     updatePointCount();
-                    points += (999+(Math.floor(Math.random)*2)*3);
+                    notificationSend("You have bought a new iPhone.");
                 }
             });
             buyGTA6.addEventListener("click", function() {
@@ -472,6 +495,7 @@
                     points -= 85000;
                     boughtGTA6 = true;
                     updatePointCount();
+                    notificationSend("You have bought GTA6.");
                 }
             });
             learnMathematician.addEventListener("click", function() {
@@ -480,6 +504,7 @@
                     boughtMathematician = true;
                     points += ((Math.floor(Math.random()*1000))+600);
                     updatePointCount();
+                    notificationSend("You have learned how to be a mathematician. You try to apply for a job, but you get rejected immediately.");
                 }
             });
             //save function
@@ -496,13 +521,8 @@
                     boughtGTA6: boughtGTA6,
                     boughtMathematician: boughtMathematician,
                     boughtEmoBand: boughtEmoBand,
+                    mcDonaldsHasBeenApplied: mcDonaldsHasBeenApplied,
                     stocks: stocks
-                }));
-            }, 2000);
-
-            setInterval(function() { //just in case someone tries to cheat :)
-                localStorage.setItem(math.random,JSON.stringify({
-                    "no cheating": nocheating
                 }));
             }, 2000);
                 addEventListener("DOMContentLoaded", function() {
