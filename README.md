@@ -1,6 +1,6 @@
 # Overview
 
-Depression Clicker 2 is a game about getting as sad as possible, with a clicker-game style layout. 
+Depression Clicker 2 is a game about getting as sad as possible, with a clicker-game style layout, and bitlife-like game approach(uses text a lot).
 
 Depression Clicker 2 is made in JavaScript and HTML, and can be run on almost any device. There are a lot of activities that you can do to get more sad in-game, including: getting a crocodile, talking to an old man, and yelling at random civilians. 
 Sadness is measured in `points`, and you generally want to get the highest number of points possible. 
