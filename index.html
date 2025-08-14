@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!---version 1.4--->
 <html lang="en" style="height: 132px;">
     <head>
         <meta charset="utf-8">
@@ -155,6 +156,10 @@
                     }, 500);
                 }, 5000);
             }
+            function randomChanceGeneration(min, max) {
+                return Math.round(Math.floor(Math.random() * (max - min + 1)));
+            }
+            //return the rounded value
 
             getSad.addEventListener("click", function() {
                 points += 1;
@@ -172,9 +177,17 @@
                 if (points >= 50) {
                     points -= 50;
                     him = (Math.floor(Math.random()*51));
+                    if (Math.floor(Math.random()*3) == 1) {
+                        emotion = "happy";
+                        him -= 12
+                    } else if (Math.floor(Math.random()*3) == 2) {
+                        emotion = "sad";
+                    } else {
+                        emotion = "silly";
+                    }
                     points += him;
                     updatePointCount();
-                    notificationSend("You watched a sad video on YouTube. You remember how sad you are and you earn "+him+" points.");
+                    notificationSend("You watched a " + emotion + " video on YouTube. You remember how sad you are and you earn "+him+" points.");
                 }
             });
             yellAtCivilians.addEventListener("click", function() {
@@ -386,19 +399,37 @@
                 if (points >= 30) {
                     points -= 30;
                     points += (Math.floor(Math.random()*12))-5;
+                    rand = randomChanceGeneration(0,5);
+                        if (rand == 0) {
+                            vidTopic = "your pet crocodile biting the floor for no apparent reason";
+                        } else if (rand == 1) {
+                            vidTopic = "your sad ramblings";
+                        } else if (rand == 2) {
+                            vidTopic = "your sad friend";
+                        } else if (rand == 3) {
+                            vidTopic = "a game clip";
+                        } else if (rand == 4) {
+                            vidTopic = "yourself crying";
+                        } else {
+                            vidTopic = "your pet cat";
+                        }
                     updatePointCount();
-                    notificationSend("You post a sped up video that you stole and overlayed subway surfers gameplay onto the video. You get points from the video.");
+                    notificationSend("You have just posted a video of " + vidTopic + " on TikTok, and you get hate comments.");
                 }
             });
             mowLawn.addEventListener("click", function() {
                 if (points >= 10) {
                     points -= 10;
-                    him = (Math.floor(Math.random()*15))
+                    if (rand == 5) {
+                        notificationSend("Woah!!! You just got a 1 in 1000 chance find! You are awarded with " + him + " points!")
+                        him = (Math.floor(Math.random()*(pointCount/25)))
+                    }
                     points += him;
                     updatePointCount();
-                    notificationSend("You mow your lawn. You feel sad, and you earn "+him+" points.");
+                    rand = randomChanceGeneration(0,1000);
+                    }
                 }
-            });
+            );
             applyMcDonaldJob.addEventListener("click", function() {
                 if (points >= 800 && mcDonaldsHasBeenApplied == false) {
                     points -= 800;
@@ -472,6 +503,31 @@
                         points += (Math.floor(Math.random()*(4127))+100);
                         updatePointCount();
                     }, 40000);
+                    rand = randomChanceGeneration(0, 10);
+                        if (rand == 0) {
+                            emotion = "dumbass";
+                        } else if (rand == 1) {
+                            emotion = "good person";
+                        } else if (rand == 2) {
+                            emotion = "businessman";
+                        } else if (rand == 3) {
+                            emotion = "man";
+                        } else if (rand == 4) {
+                            emotion = "angry man";
+                        } else if (rand == 5) {
+                            emotion = "bored man";
+                        } else if (rand == 6) {
+                            emotion = "excited man";
+                        } else if (rand == 7) {
+                            emotion = "broken man";
+                        } else if (rand == 8) {
+                            emotion = "depressed man";
+                        } else if (rand == 9) {
+                            emotion = "anxious man";
+                        } else {
+                            emotion = "extremely stupid person";
+                        }
+                    notificationSend("You have bought the legal rights to the letter 'a'. You feel like a " + emotion + ", but you also feel sad because you spent all your points on a single letter.");
                 }
             });
             buyStrangeTeleport.addEventListener("click", function() {
@@ -491,20 +547,71 @@
                 }
             });
             buyGTA6.addEventListener("click", function() {
-                if (points >= 85000 && boughtGTA6 == false) {
+                if (points >= 85000 && boughtGTA6 == false && new Date() > new Date("2026-03-26")) { //GTA 6 will be released on march 26, 2026
                     points -= 85000;
                     boughtGTA6 = true;
                     updatePointCount();
-                    notificationSend("You have bought GTA6.");
+                    notificationSend("You have bought GTA6! You are now getting 500 more points per second, for some strange reason.");
+                    setTimeout(function() {
+                        points += 500;
+                        updatePointCount();
+                    }, 1000);
+                } else {
+                    notificationSend("Sorry, GTA6 has not been released yet. According to Rockstar Games, it will be released on March 26, 2026.");
                 }
             });
             learnMathematician.addEventListener("click", function() {
                 if (points >= 900000 && learnMathematician == false) {
                     points -= 900000;
                     boughtMathematician = true;
-                    points += ((Math.floor(Math.random()*1000))+600);
+                    him = ((Math.floor(Math.random()*1000))+600);
+                    points += him;
                     updatePointCount();
-                    notificationSend("You have learned how to be a mathematician. You try to apply for a job, but you get rejected immediately.");
+                    rand = randomChanceGeneration(0,20)
+                        if (rand == 0) {
+                            jobtitle = "Mathematician";
+                        } else if (rand == 1) {
+                            jobtitle = "Engineer";
+                        } else if (rand == 2) {
+                            jobtitle = "Scientist";
+                        } else if (rand == 3) {
+                            jobtitle = "Data Analyst";
+                        } else if (rand == 4) {
+                            jobtitle = "Scammer";
+                        } else if (rand == 5) {
+                            jobtitle = "Software Developer";
+                        } else if (rand == 6) {
+                            jobtitle = "Hippotherapist";
+                        } else if (rand == 7) {
+                            jobtitle = "Economist";
+                        } else if (rand == 8) {
+                            jobtitle = "Water Slide Tester";
+                        } else if (rand == 9) {
+                            jobtitle = "Actuary";
+                        } else if (rand == 10) {
+                            jobtitle = "Fortune Cookie Writer";
+                        } else if (rand == 11) {
+                            jobtitle = "Quantitative Analyst";
+                        } else if (rand == 12) {
+                            jobtitle = "Cryptographer";
+                        } else if (rand == 13) {
+                            jobtitle = "Pro Car Watcher";
+                        } else if (rand == 14) {
+                            jobtitle = "Teddy Bear Repair Technician";
+                        } else if (rand == 15) {
+                            jobtitle = "Furnace and Kiln Repair Technicians";
+                        } else if (rand == 16) {
+                            jobtitle = "Taxi Driver";
+                        } else if (rand == 17) {
+                            jobtitle = "Factory Worker";
+                        } else if (rand == 18) {
+                            jobtitle = "Oil Rig Worker";
+                        } else if (rand == 19) {
+                            jobtitle = "Commercial Fisherman";
+                        } else {
+                            jobtitle = "Funeral Director";
+                        }
+                    notificationSend("You have learned how to be a mathematician. You try to apply for a " + jobtitle + " job, but you get rejected immediately. This makes you sad, earning you " + him + " points.");
                 }
             });
             //save function
