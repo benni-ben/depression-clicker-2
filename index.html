@@ -220,10 +220,13 @@
             talkToYourself.addEventListener("click", function() {
                 if (points >= 100) {
                     points -= 100;
-                    him = (Math.floor(Math.random()*600))
+                    him = (Math.floor(Math.random()*600-(pointCount/150)))
                     points += him;
                     updatePointCount();
-                    notificationSend("You start an amazing conversation with yourself, specifically about the impact of thugs.")
+                    rand = randomChanceGeneration(0,impactTopics.length - 1);
+                    const impactTopics = ["Weather","Society","Economy","Politics","Technology"];
+                    impact = impactTopics.findIndex(impact => impact === impactTopics[rand]);
+                    notificationSend("You start an amazing conversation with yourself, specifically about the impact of " + impact + ".");
                 }
             });
             playSubwaySurf.addEventListener("click", function() {
@@ -253,7 +256,7 @@
             cry.addEventListener("click", function() {
                 if (points >= 100) {
                     points -= 100;
-                    him = (Math.floor(Math.random()*550));
+                    him = (Math.floor(Math.random()*550+(pointCount/100)));
                     points += him;
                     updatePointCount();
                     notificationSend("You cry because you are sad. You feel sadder, and you earn "+him+" points.");
