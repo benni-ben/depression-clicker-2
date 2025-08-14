@@ -351,7 +351,7 @@
             stareAtWall.addEventListener("click", function() {
                 if (points >= 4000) {
                     points -= 4000;
-                    points += (Math.floor(Math.random()*48));
+                    points += (Math.floor(Math.random()*48+(pointCount/200)));
                     updatePointCount();
                     notificationSend("You stare at the wall. You have an interesting experience thinking about how the world exists while you stare at the wall. After a while, you start seeing odd figures. You earn "+him+" points.");
                 }
@@ -362,7 +362,13 @@
                     barbiesOwnedValue += 1;
                     updatePointCount();
                     updateBarbiesOwned();
-                    notificationSend("You bought a barbie! What are you going to do with it?");
+                    rand = randomChanceGeneration(0,100);
+                    if (rand == 5) {
+                        notificationSend("You have bought a barbie. You decide to throw it across the room at the wall.");
+                        points += 4000
+                    } else {
+                        notificationSend("You have bought a barbie.");
+                    }
                 }
             });
             buyPetCrocodile.addEventListener("click", function() {
@@ -463,7 +469,10 @@
                     points -= 10;
                     points += ((Math.floor(Math.random()*5))+(2+crocodileOwnedValue)); //adding the crocodile owned value because talking to old men somehow correlates to crocodiles
                     updatePointCount();
-                    notificationSend("You start a conversation with an old man named Dave. He talks to you for 2 hours, and you feel extremely sad and bored. You earn "+him+" points.");
+                    rand = randomChanceGeneration(0, nameArray.length - 1);
+                    const nameArray = ["Dave", "John", "Mike", "Tom", "Bob","Steve","Jantevious","Peter","Jamal","Jeffery","Betty","Bernice","Dora","Azure","X Æ A-12","Gru"];
+                    const name = nameArray[rand];
+                    notificationSend("You start a conversation with an old man named " + name + ". He talks to you for 2 hours, and you feel extremely sad and bored. You earn "+him+" points.");
                 }
             });
             playRoblox.addEventListener("click", function() {
