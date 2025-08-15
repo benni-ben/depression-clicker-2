@@ -137,15 +137,18 @@
                     updateEmoSongProduceCount();
                 }
             });
-            function notificationSend(text,head) {
+            function notificationSend(text,head,color,bold,font) {      //notification sending function
                 notifcationText.innerHTML = text;
+                notifcationText.style.color = color;
+                notifcationText.style.fontWeight = bold ? "bold" : "normal";
+                notifcationText.style.fontFamily = font || "Arial";
                 noticontain.style.visibility = "visible";
                 if (head) {
                     notiheader.innerHTML = head;
                 } else {
                     notiheader.innerHTML = "New Notification";
                 }
-                noticontain.style.transition = "top 0.5s ease-in-out";
+                noticontain.style.transition = cubic-bezier(0.25, 0.8, 0.25, 1);
                 noticontain.style.transition = "none";
                 noticontain.style.top = "0px";
                 setTimeout(function() {
@@ -154,7 +157,7 @@
                     setTimeout(function() {
                         noticontain.style.visibility = "hidden";
                     }, 500);
-                }, 5000);
+                }, 6000);
             }
             function randomChanceGeneration(min, max) {
                 return Math.round(Math.floor(Math.random() * (max - min + 1)));
