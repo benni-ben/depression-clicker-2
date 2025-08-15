@@ -176,18 +176,11 @@
             watchYouTube.addEventListener("click", function() {
                 if (points >= 50) {
                     points -= 50;
-                    him = (Math.floor(Math.random()*51));
-                    if (Math.floor(Math.random()*3) == 1) {
-                        emotion = "happy";
-                        him -= 12
-                    } else if (Math.floor(Math.random()*3) == 2) {
-                        emotion = "sad";
-                    } else {
-                        emotion = "silly";
-                    }
+                    const emotion = ["sad","depressing","mean","random","bad","angry","weird","stupid"];
+                    const him = Math.floor(Math.random() * 100) + 1;
                     points += him;
                     updatePointCount();
-                    notificationSend("You watched a " + emotion + " video on YouTube. You remember how sad you are and you earn "+him+" points.");
+                    notificationSend("You watched a " + emotion[randomChanceGeneration(0, emotion.length - 1)] + " video on YouTube. You remember how sad you are and you earn " + him + " points.");
                 }
             });
             yellAtCivilians.addEventListener("click", function() {
@@ -225,7 +218,7 @@
                     updatePointCount();
                     rand = randomChanceGeneration(0,impactTopics.length - 1);
                     const impactTopics = ["Weather","Society","Economy","Politics","Technology"];
-                    impact = impactTopics.findIndex(impact => impact === impactTopics[rand]);
+                    impact = impactTopics.findIndex(impact => impact === impactTopics[rand]); //to do: move array index finder into the string instead of assigning more variables
                     notificationSend("You start an amazing conversation with yourself, specifically about the impact of " + impact + ".");
                 }
             });
