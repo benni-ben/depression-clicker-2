@@ -32,7 +32,6 @@
         </div>
         <script>
 
-
             //--counters and such//
             const pointCount = document.getElementById("pointCount");
             const sadFriendCount = document.getElementById("sadFriendCount");
@@ -95,6 +94,7 @@
                 let mcDonaldsHasBeenApplied = false;
                 let text = ""
                 let stocks = 0;
+                let transitioningNow = false;
                 //functions for display updates and unlocks
                 function updatePointCount() {
                     pointCount.innerHTML = "Points: " + points;
@@ -113,6 +113,12 @@
                         unlockableLargePurchaseSection.style.display = "block";
                     }
                 }
+            TransitionNotificationListener = document.getElementById("noticontain").addEventListener("transitionstart", function() {
+                transitioningNow = true;
+            });
+            TransitionNotificationListener = document.getElementById("noticontain").addEventListener("transitionend", function() {
+                transitioningNow = false;
+            });
             //click event listeners for buttons and localsave loading
             addEventListener("DOMContentLoaded", function() {
                 //load saved data from localStorage(after DOM is loaded)
@@ -137,27 +143,34 @@
                     updateEmoSongProduceCount();
                 }
             });
-            function notificationSend(text,head,color,bold,font) {      //notification sending function
-                notifcationText.innerHTML = text;
-                notifcationText.style.color = color;
-                notifcationText.style.fontWeight = bold ? "bold" : "normal";
-                notifcationText.style.fontFamily = font || "Arial";
-                noticontain.style.visibility = "visible";
-                if (head) {
-                    notiheader.innerHTML = head;
-                } else {
-                    notiheader.innerHTML = "New Notification";
-                }
-                noticontain.style.transition = cubic-bezier(0.25, 0.8, 0.25, 1);
-                noticontain.style.transition = "none";
-                noticontain.style.top = "0px";
-                setTimeout(function() {
-                    noticontain.style.transition = "top 0.5s ease-in-out";
-                    noticontain.style.top = "-160px";
+            function notificationSend(text,head,color,bold,font) {      //notification sending function; check over later
+                if (transitioningNow == false) {
+                    notifcationText.innerHTML = text;
+                    notifcationText.style.color = color;
+                    notifcationText.style.fontWeight = bold ? "bold" : "normal";
+                    notifcationText.style.fontFamily = font || "Arial";
+                    noticontain.style.visibility = "visible";
+                    if (head) {
+                        notiheader.innerHTML = head;
+                    } else {
+                        notiheader.innerHTML = "New Notification";
+                    }
+                    noticontain.style.transition = "0.4 cubic-bezier(0.25, 0.8, 0.25, 1)";
+                    noticontain.style.transition = "none";
+                    noticontain.style.position = "sticky";
+                    noticontain.style.top = "0px";
                     setTimeout(function() {
-                        noticontain.style.visibility = "hidden";
-                    }, 500);
-                }, 6000);
+                        noticontain.style.transition = "0.4 cubic-bezier(0.25, 0.8, 0.25, 1)";
+                        noticontain.style.top = "-160px";
+                        setTimeout(function() {
+                            noticontain.style.visibility = "hidden";
+                        }, 500);
+                    }, 6000);
+                } else if (transitioningNow == true) { //if the transition is currently playing, then wait for the last transition to finish, then show the notification
+                    setTimeout(function() {
+                        notificationSend(text, head, color, bold, font);
+                    }, 400);
+                }
             }
             function randomChanceGeneration(min, max) {
                 return Math.round(Math.floor(Math.random() * (max - min + 1)));
